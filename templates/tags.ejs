@@ -4,13 +4,96 @@
   <meta charset="utf-8">
   <title>Placas - Weepec</title>
   <style>
+    @font-face {
+      font-family: 'Angelface';
+      src: url('fonts/Angelface.otf') format('opentype');
+    }
+
+    @font-face {
+      font-family: 'Montserrat-Bold';
+      font-weight: bold;
+      src: url('fonts/Montserrat-Bold.otf') format('opentype');
+    }
+
+    @media print {
+      .page-break { page-break-after: always; }
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    .tag-container {
+      padding: 1mm;
+      width: 45mm;
+      height: 25mm;
+      background-image: url('images/placa_layout.png');
+      background-size:contain;
+      background-position: center;
+      background-repeat: no-repeat;
+      margin-bottom: 5px;
+    }
+    .name-container {
+      width: 22mm;
+      height: 12mm;
+      position: relative;
+      top: 8.5mm;
+      left: 5mm;
+      font-family: 'Angelface';
+    }
+    .qr-container {
+      width: 13mm;
+      height: 14.5mm;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      position: relative;
+      bottom: 6mm;
+      left: 27.5mm;
+    }
+    .qr-image {
+      width: 13mm;
+      height: 13mm;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+    .qr-id {
+      width: 13mm;
+      height: 1.5mm;
+      font-family: 'Montserrat-Bold';
+      font-weight: bold;
+      font-size: 4pt;
+      text-align: center;
+    }
+    .page-break {
+
+    }
   </style>
 </head>
 <body>
   <% for (var i = 0; i < data.length; i++) { %>
-    <div>
-      <%= data[i]['Id'] %>
-      <%= data[i]['Nombre'] %>
+    <% if (i % 100 === 0) { %>
+    <div class="tag-container page-break">
+    <% } else { %>
+    <div class="tag-container">
+    <% } %>
+      <div class="name-container">
+      <%= data[i]['perro'] %>
+      </div>
+      <div class="qr-container">
+        <div class="qr-image" style="background-image: url('qrs/0ae29fe5284.png');">
+        </div>
+        <div class="qr-id">
+          <%= data[i]['codigo_qr'] %>
+        </div>
+      </div>
     </div>
   <% } %>
+  <script src="js/textFit.min.js"></script>
+  <script>
+    textFit(document.getElementsByClassName('name-container'), { alignVert: true, alignHoriz: true, multiLine: true });
+    textFit(document.getElementsByClassName('qr-id'), { alignVert: true, alignHoriz: true, multiLine: false });
+  </script>
+</body>
 </html>
