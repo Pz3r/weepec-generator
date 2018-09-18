@@ -1,0 +1,15 @@
+{
+  "name": "placas",
+  "version": "1.0.0",
+  "description": "Generador de archivos de placas y etiquetas.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Samuel Pozaicer",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^2.6.1",
+    "xlsx": "^0.14.0"
+  }
+}
