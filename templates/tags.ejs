@@ -24,11 +24,11 @@
       padding: 0;
     }
     .tag-container {
-      padding: 1mm;
+      padding: 0.5mm;
       width: 45mm;
       height: 25mm;
       background-image: url('images/placa_layout.png');
-      background-size:contain;
+      background-size: contain;
       background-position: center;
       background-repeat: no-repeat;
       margin-bottom: 5px;
@@ -92,7 +92,7 @@
   <% } %>
   <script src="js/textFit.min.js"></script>
   <script>
-    textFit(document.getElementsByClassName('name-container'), { alignVert: true, alignHoriz: true, multiLine: true });
+    textFit(document.getElementsByClassName('name-container'), { alignVert: true, alignHoriz: true, multiLine: true, minFontSize: 10 });
     textFit(document.getElementsByClassName('qr-id'), { alignVert: true, alignHoriz: true, multiLine: false });
   </script>
 </body>

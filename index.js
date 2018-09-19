@@ -8,8 +8,7 @@
 
   var processTags = (file, callback) => {
     console.log('Procesando placas del archivo:', file)
-    var generator = TAGS.getLoadedGenerator(file);
-    generator(callback)
+    TAGS.generateTagFiles(file);
   }
 
   var processArgs = arg => {

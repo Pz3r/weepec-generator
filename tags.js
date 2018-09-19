@@ -3,12 +3,25 @@
   const { loadData } = require('./loader.js')
   const { generateHtml } = require('./generator.js')
 
-  exports.getLoadedGenerator = (file) => {
+  var generateTagFiles = async (file, chunkSize = 100) => {
     var data = loadData(file)
+
+    console.log(data.length, 'placas cargadas')
+
     var today = new Date()
-    return (callback) => {
-      generateHtml('./templates/tags.ejs', data, `./gen/tags/tags_${today.getTime()}.html`, callback)
+
+    var i, j, k, finalResult = 0;
+    var temp = []
+    for (i = 0, j = data.length, k = 1; i < j; i += chunkSize, k++) {
+      temp = data.slice(i, i + chunkSize)
+      let result = await generateHtml('./templates/tags.ejs', temp, `./gen/tags/tags_${today.getTime()}_${k}.html`)
+      finalResult += result
     }
+
+    console.log(finalResult, 'placas procesadas');
+
   }
+
+  exports.generateTagFiles = generateTagFiles;
 
 })()
