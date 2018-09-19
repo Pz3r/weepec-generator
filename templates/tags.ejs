@@ -79,7 +79,7 @@
     <div class="tag-container">
     <% } %>
       <div class="name-container">
-      <%= data[i]['perro'] %>
+      <%= data[i]['perro'].charAt(0).toUpperCase() + data[i]['perro'].substr(1).toLowerCase() %>
       </div>
       <div class="qr-container">
         <div class="qr-image" style="background-image: url('qrs/0ae29fe5284.png');">
@@ -92,7 +92,7 @@
   <% } %>
   <script src="js/textFit.min.js"></script>
   <script>
-    textFit(document.getElementsByClassName('name-container'), { alignVert: true, alignHoriz: true, multiLine: true, minFontSize: 10 });
+    textFit(document.getElementsByClassName('name-container'), { alignVert: true, alignHoriz: true, multiLine: true, minFontSize: 23 });
     textFit(document.getElementsByClassName('qr-id'), { alignVert: true, alignHoriz: true, multiLine: false });
   </script>
 </body>
