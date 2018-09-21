@@ -73,4 +73,5 @@ typings/
 .serverless
 
 # Generated files
-gen/
+gen/tags/html
+gen/tags/pdf

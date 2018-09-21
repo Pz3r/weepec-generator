@@ -6,13 +6,13 @@
   <style>
     @font-face {
       font-family: 'Angelface';
-      src: url('fonts/Angelface.otf') format('opentype');
+      src: url('../fonts/Angelface.otf') format('opentype');
     }
 
     @font-face {
       font-family: 'Montserrat-Bold';
       font-weight: bold;
-      src: url('fonts/Montserrat-Bold.otf') format('opentype');
+      src: url('../fonts/Montserrat-Bold.otf') format('opentype');
     }
 
     @media print {
@@ -27,7 +27,7 @@
       padding: 0.5mm;
       width: 45mm;
       height: 25mm;
-      background-image: url('images/placa_layout.png');
+      background-image: url('../images/placa_layout.png');
       background-size: contain;
       background-position: center;
       background-repeat: no-repeat;
@@ -82,7 +82,7 @@
       <%= data[i]['perro'].charAt(0).toUpperCase() + data[i]['perro'].substr(1).toLowerCase() %>
       </div>
       <div class="qr-container">
-        <div class="qr-image" style="background-image: url('qrs/0ae29fe5284.png');">
+        <div class="qr-image" style="background-image: url('../qrs/0ae29fe5284.png');">
         </div>
         <div class="qr-id">
           <%= data[i]['codigo_qr'] %>
@@ -90,7 +90,7 @@
       </div>
     </div>
   <% } %>
-  <script src="js/textFit.min.js"></script>
+  <script src="../js/textFit.min.js"></script>
   <script>
     textFit(document.getElementsByClassName('name-container'), { alignVert: true, alignHoriz: true, multiLine: true, minFontSize: 23 });
     textFit(document.getElementsByClassName('qr-id'), { alignVert: true, alignHoriz: true, multiLine: false });
