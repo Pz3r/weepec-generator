@@ -1,6 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <script
+        src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+  <script src="../js/textFit.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      textFit(document.getElementsByClassName('name-container'), { alignVert: true, alignHoriz: true, multiLine: true, minFontSize: 35 });
+      textFit(document.getElementsByClassName('name-container'), { alignVert: true, alignHoriz: true, multiLine: true, minFontSize: 35 });
+      textFit(document.getElementsByClassName('qr-id'), { alignVert: true, alignHoriz: true, multiLine: false });
+      textFit(document.getElementsByClassName('qr-id'), { alignVert: true, alignHoriz: true, multiLine: false });
+    });
+  </script>
   <meta charset="utf-8">
   <title>Placas - Weepec</title>
   <style>
@@ -34,11 +47,11 @@
       margin-bottom: 5px;
     }
     .name-container {
-      width: 22mm;
-      height: 12mm;
+      width: 23.5mm;
+      height: 16.0mm;
       position: relative;
-      top: 8.5mm;
-      left: 5mm;
+      top: 6.5mm;
+      left: 4.5mm;
       font-family: 'Angelface';
     }
     .qr-container {
@@ -48,7 +61,7 @@
       background-position: center;
       background-repeat: no-repeat;
       position: relative;
-      bottom: 6mm;
+      bottom: 10.0mm;
       left: 27.5mm;
     }
     .qr-image {
@@ -72,17 +85,14 @@
   </style>
 </head>
 <body>
+  <div class="page-break">
   <% for (var i = 0; i < data.length; i++) { %>
-    <% if (i % 100 === 0) { %>
-    <div class="tag-container page-break">
-    <% } else { %>
     <div class="tag-container">
-    <% } %>
       <div class="name-container">
       <%= data[i]['perro'].charAt(0).toUpperCase() + data[i]['perro'].substr(1).toLowerCase() %>
       </div>
       <div class="qr-container">
-        <div class="qr-image" style="background-image: url('../qrs/0ae29fe5284.png');">
+        <div class="qr-image" style="background-image: url(<%= '../qrs/' + data[i]['codigo_qr'] + '.png' %>);">
         </div>
         <div class="qr-id">
           <%= data[i]['codigo_qr'] %>
@@ -90,10 +100,6 @@
       </div>
     </div>
   <% } %>
-  <script src="../js/textFit.min.js"></script>
-  <script>
-    textFit(document.getElementsByClassName('name-container'), { alignVert: true, alignHoriz: true, multiLine: true, minFontSize: 23 });
-    textFit(document.getElementsByClassName('qr-id'), { alignVert: true, alignHoriz: true, multiLine: false });
-  </script>
+  </div>
 </body>
 </html>

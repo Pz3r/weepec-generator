@@ -74,4 +74,4 @@ typings/
 
 # Generated files
 gen/tags/html
-gen/tags/pdf
+gen/tags/qrs
