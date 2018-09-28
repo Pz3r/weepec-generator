@@ -89,7 +89,8 @@
   <% for (var i = 0; i < data.length; i++) { %>
     <div class="tag-container">
       <div class="name-container">
-      <%= data[i]['perro'].charAt(0).toUpperCase() + data[i]['perro'].substr(1).toLowerCase() %>
+      <% var dogName = data[i]['perro'].split(" ")[0] %>
+      <%= dogName.charAt(0).toUpperCase() + dogName.substr(1).toLowerCase() %>
       </div>
       <div class="qr-container">
         <div class="qr-image" style="background-image: url(<%= '../qrs/' + data[i]['codigo_qr'] + '.png' %>);">
