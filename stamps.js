@@ -21,12 +21,12 @@
     return pages;
   }
 
-  var generateStampFile = (file) => {
+  var generateStampFile = (file, name) => {
     var data = prepareData(file)
 
     var today = new Date()
 
-    return generateHtml('./templates/stamps.ejs', data, `./gen/stamps/html/stamps_${today.getTime()}.html`)
+    return generateHtml('./templates/stamps.ejs', data, `./gen/stamps/html/${name}_${today.getTime()}.html`)
   }
 
   exports.generateStampFile = generateStampFile;

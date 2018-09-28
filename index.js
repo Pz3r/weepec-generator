@@ -3,18 +3,18 @@
   const TAGS = require('./tags.js')
   const STAMPS = require('./stamps.js')
 
-  var processStamps = (file, callback) => {
+  var processStamps = (file, name, callback) => {
     console.log('Procesando etiquetas del archivo:', file)
-    STAMPS.generateStampFile(file).then((result) => {
+    STAMPS.generateStampFile(file, name).then((result) => {
       console.log('Archivo con', result, 'páginas')
     }, (err) => {
       console.log(err)
     })
   }
 
-  var processTags = (file, callback) => {
+  var processTags = (file, name, callback) => {
     console.log('Procesando placas del archivo:', file)
-    TAGS.generateTagFiles(file)
+    TAGS.generateTagFiles(file, name)
   }
 
   var processArgs = arg => {
@@ -30,17 +30,20 @@
 
   var main = (args) => {
     var processor;
-    var fileProcessor;
+    var filePath;
+    var resultName;
 
     args.forEach((val, index) => {
       if (index == 2) {
         processor = processArgs(val);
-      } else if (index > 2) {
-        fileProcessor = (callback) => processor(val, callback);
+      } else if (index == 3) {
+        filePath = val;
+      } else if (index == 4) {
+        resultName = val;
       }
     })
 
-    return fileProcessor;
+    return (callback) => processor(filePath, resultName, callback);
   }
 
   var fileProcessor = main(process.argv);
