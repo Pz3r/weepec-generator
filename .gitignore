@@ -74,5 +74,5 @@ typings/
 
 # Generated files
 gen/tags/html/*.html
-gen/tags/html/qrs/*
+gen/tags/html/qrs/*.svg
 gen/stamps/html/*.html
