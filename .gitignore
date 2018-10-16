@@ -73,6 +73,6 @@ typings/
 .serverless
 
 # Generated files
-gen/tags/html/*.*
-gen/tags/qrs
-gen/stamps/html/*.*
+gen/tags/html/*.html
+gen/tags/html/qrs/*
+gen/stamps/html/*.html

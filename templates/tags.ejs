@@ -5,12 +5,10 @@
         src="https://code.jquery.com/jquery-3.3.1.min.js"
         integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
         crossorigin="anonymous"></script>
-  <script src="../js/textFit.min.js"></script>
+  <script src="js/textFit.min.js"></script>
   <script>
     $(document).ready(function() {
       textFit(document.getElementsByClassName('name-container'), { alignVert: true, alignHoriz: true, multiLine: true, minFontSize: 35 });
-      textFit(document.getElementsByClassName('name-container'), { alignVert: true, alignHoriz: true, multiLine: true, minFontSize: 35 });
-      textFit(document.getElementsByClassName('qr-id'), { alignVert: true, alignHoriz: true, multiLine: false });
       textFit(document.getElementsByClassName('qr-id'), { alignVert: true, alignHoriz: true, multiLine: false });
     });
   </script>
@@ -40,7 +38,7 @@
       padding: 0.5mm;
       width: 45mm;
       height: 25mm;
-      background-image: url('../images/placa_layout.png');
+      background-image: url('images/placa_layout.png');
       background-size: contain;
       background-position: center;
       background-repeat: no-repeat;
@@ -68,9 +66,6 @@
     .qr-image {
       width: 13mm;
       height: 13mm;
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
     }
     .qr-id {
       width: 13mm;
@@ -95,7 +90,8 @@
       <%= dogName.charAt(0).toUpperCase() + dogName.substr(1).toLowerCase() %>
       </div>
       <div class="qr-container">
-        <div class="qr-image" style="background-image: url(<%= '../qrs/' + data[i]['codigo_qr'] + '.png' %>);">
+        <div class="qr-image">
+          <img src="<%= 'qrs/' + data[i]['codigo_qr'] + '.svg' %>" style="width: 13mm; height: 13mm;">
         </div>
         <div class="qr-id">
           <%= data[i]['codigo_qr'] %>
