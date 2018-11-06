@@ -38,6 +38,8 @@
                 if (!$img.attr('width')) $svg.removeAttr('width');
             }
 
+            $svg.attr('viewBox', '0 0 25 25');
+
             $svg.insertAfter($img);
             $img.trigger('svgInlined', $svg[0]);
             $img.remove();
