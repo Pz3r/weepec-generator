@@ -15,7 +15,6 @@
     }
     .page {
       width: 215.9mm;
-      height: 266.4mm;
       padding-top: 13.5mm;
       background-color: white;
     }
@@ -36,8 +35,7 @@
     }
 
     @media print {
-      .page-a { page-break-after: always; }
-      .page-b { page-break-after: always; }
+      .page { page-break-before: always; }
     }
 
   </style>

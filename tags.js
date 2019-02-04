@@ -12,9 +12,24 @@
 
     var i, j, k, finalResult = 0;
     var temp = []
-    for (i = 0, j = data.length, k = 1; i < j; i += chunkSize, k++) {
+    var filteredTemp = []
+    var currentLetter = ''
+    var tempLetter = ''
+    for (i = 0, j = data.length, k = 1; i < j; k++) {
       temp = data.slice(i, i + chunkSize)
-      let result = await generateHtml('./templates/tags.ejs', temp, `./gen/tags/html/${name}_${today.getTime()}_${k}.html`)
+
+      tempLetter = temp[0]['perro'].charAt(0).toUpperCase()
+      if (currentLetter !== tempLetter) {
+          currentLetter = tempLetter
+      }
+
+      filteredTemp = temp.filter((elem, index, array) => {
+        return elem['perro'].charAt(0).toUpperCase() === currentLetter;
+      })
+
+      i += filteredTemp.length
+
+      let result = await generateHtml('./templates/tags.ejs', filteredTemp, `./gen/tags/html/${name}_${today.getTime()}_${currentLetter}_${k}.html`)
       finalResult += result
     }
 
