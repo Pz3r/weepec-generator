@@ -9,6 +9,7 @@
   "author": "Samuel Pozaicer",
   "license": "ISC",
   "dependencies": {
+    "diacritics": "^1.3.0",
     "ejs": "^2.6.1",
     "xlsx": "^0.14.0"
   },
